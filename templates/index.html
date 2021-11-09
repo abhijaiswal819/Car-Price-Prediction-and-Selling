@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head xmlns="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    
+    
+    <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+<link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <title>Car Price Prediction & Selling</title>
+   
+</head>
+<body>
+    <div class="modal" id="modal">
+        <div class="modal_content">
+            <a href="#" class="modal_close">X</a>
+            <ul class="navigation_list">
+                <li class="navigation_item"><a href="static/Car Info/Ambassador.html" class="navigation_link">Ambassador</a></li>
+                <li class="navigation_item"><a href="static/Car Info/Audi.html" class="navigation_link">Audi</a></li>
+                <li class="navigation_item"><a href="static/Car Info/Bentley.html" class="navigation_link">Bentley</a></li>
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">BMW</a></li>
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">Chevrolet</a></li>
+                <li class="navigation_item"><a href="static/Car Info/Datsun.html" class="navigation_link">Datsun</a></li>
+                <li class="navigation_item"><a href="static/Car Info/Fiat.html" class="navigation_link">Fiat</a></li>
+                <li class="navigation_item"><a href="static/Car Info/Force.html" class="navigation_link">Force</a></li>
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">Ford</a></li>	
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">Honda</a></li>
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">Hyundai</a></li>	
+                <li class="navigation_item"><a href="static/Car Info/Isuzu.html" class="navigation_link">Isuzu</a></li>
+                <li class="navigation_item"><a href="static/Car Info/Jaguar.html" class="navigation_link">Jaguar</a></li>
+                <li class="navigation_item"><a href="static/Car Info/Jeep.html" class="navigation_link">Jeep</a></li>
+                <li class="navigation_item"><a href="static/Car Info/Lamborghini.html" class="navigation_link">Lamborghini</a></li>
+            </ul>
+            
+            <ul class="navigation_list1">
+                <li class="navigation_item"><a href="static/Car Info/Land.html" class="navigation_link">Land</a></li>
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">Mahindra</a></li>
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">Maruti</a></li>
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">Mercedes-Benz</a></li>
+                <li class="navigation_item"><a href="static/Car Info/Mini.html" class="navigation_link">Mini</a></li>  
+                <li class="navigation_item"><a href="static/Car Info/Mitsubishi.html" class="navigation_link">Mitsubishi</a></li>
+                <li class="navigation_item"><a href="static/Car Info/Nissan.html" class="navigation_link">Nissan</a></li>
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">Porsche</a></li>
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">Renault</a></li>
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">Skoda</a></li>
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">Tata</a></li>
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">Toyota</a></li>
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">Volkswagen</a></li>
+                <li class="navigation_item"><a href="static/Car Info/" class="navigation_link">Volvo</a></li>      
+            </ul>
+        </div>
+    </div>
+
+    <section id="title" style="background-image: url(static/Images/home.jpg);">
+   
+        <!-- Nav Bar -->
+      <div class="container-fluid">
+         <nav class="navbar fixed-top navbar-expand-lg navbar-dark ">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="#section-about">About</a>
+                <a class="nav-link" href="#predictionnav">Prediction</a>
+                <a class="nav-link" href="#section-rooms">Advertisements</a>
+                <a class="nav-link my-2 my-sm-0 menubtn" href="#modal">Cars Info</a>
+                </div>
+            </div>
+            <a class="nav-link my-2 my-sm-0 menubtn" href="static/aboutus.html">About Us</a>
+             <a class="nav-link my-2 my-sm-0 menubtn" href="">Seller LogIn</a>
+        </nav>
+        
+          <div class="container-intro">
+              <h1 class="heading-primary">
+                  <span class="heading-primary-main">CarBecho.com</span>
+                  <span class="heading-primary-sub">Predict Kar, Sell kar</span>
+              </h1>
+              <a href="#prediction" class="btn btn-light btn-book">Predict Now</a>
+          </div>
+
+          <div class="row">
+              <div class="col-md-12 col-lg-6 col-xl-6 ">
+                  <div class="_2vpS2">
+                      <span class="_3QVqj">Car Companies</span>
+                      
+                      <div>
+                          <ul class="row  C7tbs">
+                              <li class="_3kV4n"><div class="text-center _1X3Cw _2GMt3"><img data-title="Maruti Suzuki" src="https://fastly-production.24c.in/cars24/brand/maruti-suzuki.png" alt="Maruti Suzuki" class="img-fluid _1jMfy"></div></li>
+                              <li class="_3kV4n"><div class="text-center _1X3Cw"><img data-title="Hyundai" src="https://fastly-production.24c.in/cars24/brand/hyundai.png" alt="Hyundai" class="img-fluid _1jMfy"></div></li>
+                              <li class="_3kV4n"><div class="text-center _1X3Cw"><img data-title="Honda" src="https://fastly-production.24c.in/cars24/brand/honda.png" alt="Honda" class="img-fluid _1jMfy"></div></li>
+                              <li class="_3kV4n"><div class="text-center _1X3Cw"><img data-title="Tata" src="https://fastly-production.24c.in/cars24/brand/tata.png" alt="Tata" class="img-fluid _1jMfy"></div></li>
+                              <li class="_3kV4n"><div class="text-center _1X3Cw"><img data-title="Toyota" src="https://fastly-production.24c.in/cars24/brand/toyota.png" alt="Toyota" class="img-fluid _1jMfy"></div></li>
+                              <li class="_3kV4n"><div class="text-center _1X3Cw"><img data-title="Chevrolet" src="https://fastly-production.24c.in/cars24/brand/chevrolet.png" alt="Chevrolet" class="img-fluid _1jMfy"></div></li>
+                              <li class="_3kV4n"><div class="text-center _1X3Cw"><img data-title="Ford" src="https://fastly-production.24c.in/cars24/brand/ford.png" alt="Ford" class="img-fluid _1jMfy"></div></li>
+                              <li class="_3kV4n"><div class="text-center _1X3Cw"><img data-title="Mahindra" src="https://fastly-production.24c.in/cars24/brand/mahindra.png" alt="Mahindra" class="img-fluid _1jMfy"></div></li>
+                              <li class="_3kV4n"><div class="text-center _1X3Cw"><img data-title="Skoda" src="https://fastly-production.24c.in/cars24/brand/skoda.png" alt="Skoda" class="img-fluid _1jMfy"></div></li>
+                              <li class="_3kV4n"><div class="text-center _1X3Cw"><img data-title="Volkswagen" src="https://fastly-production.24c.in/cars24/brand/volkswagen.png" alt="Volkswagen" class="img-fluid _1jMfy"></div></li>
+                              <li class="_3kV4n"><div class="text-center _1X3Cw"><img data-title="Nissan" src="https://fastly-production.24c.in/cars24/brand/nissan.png" alt="Nissan" class="img-fluid _1jMfy"></div></li>
+                              <li class="_3kV4n"><div class="text-center _1X3Cw"><img data-title="Renault" src="https://fastly-production.24c.in/cars24/brand/renault.png" alt="Renault" class="img-fluid _1jMfy"></div></li>
+                              <li class="_3kV4n"><div class="text-center _1X3Cw"><img data-title="Fiat" src="https://fastly-production.24c.in/cars24/brand/fiat.png" alt="Fiat" class="img-fluid _1jMfy"></div></li>
+                              <li class="_3kV4n"><div class="text-center _1X3Cw"><img data-title="Mercedes Benz" src="https://fastly-production.24c.in/cars24/brand/mercedes-benz.png" alt="Mercedes Benz" class="img-fluid _1jMfy"></div></li>
+                              <li class="_3kV4n _2l5zt"><button id="" type="button" class="btn _3BmFU AgO6q"><span>more</span></button></li>
+                          </ul>
+                      </div>
+                 </div>
+              </div>
+         </div>
+           
+      </div>
+    </section>
+
+   <section id="section-about">
+            <div class="u-center-text">
+                <h2 class="heading-secondary">Car Price Prediction & Selling</h2>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <h3 class="heading-tertiary"> Aim of This Project </h3>
+                    <p class="paragraph">
+                        Determining whether the listed price of a used car is a challenging task, due to the many factors that drive a used vehicle’s price on the market. The focus of this project is developing machine learning models that can accurately predict the price of a used car based on its features, in order to make informed purchases. We implement and evaluate various learning methods on a dataset consisting of the sale prices of different makes and models across cities in the INDIA.
+                        <br>
+                        <br>
+                        The increased prices of new cars and the financial incapability of the customers to buy them, Used Car sales are on a global increase. Therefore, there is an urgent need for a Used Car Price Prediction system which effectively determines the worthiness of the car using a variety of features. The proposed system will help to determine the accurate price of used car price prediction.
+                    </p>
+
+                    <a href="#" class="btn-text"> View Our Report &rarr;</a>
+              </div>
+              <div class="col-lg-6">
+                  <img src="static/Images/predict.jpg" alt="Photo 2" class="composition_photo composition_photo-p2" />
+                  <img src="static/Images/sell.jpg" alt="Photo 3" class="composition_photo composition_photo-p3" />
+                </div>
+            </div>
+   </section>
+
+   <section id="predictionnav">
+    <div class="container">
+        <div class="row">
+            <div class="card mt-50" style="width: 100%; height: 100%">
+                <div class="card-header" style="text-align: center">
+                    <h1>Prediction</h1>
+                </div>
+                <div class="card-body">
+                    <div class="col-12" style="text-align: center">
+                        <h5>This website predicts the price of a car you want to sell. Try filling the details below: </h5>
+                    </div>
+                    <br>
+                    <form style="margin-left: 14%;" method="post" accept-charset="utf-8" name="Modelform">
+    
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Select the company:</b> </label><br>
+                            <select class="selectpicker form-control" id="company" name="company" required="1"
+                                    onchange="load_car_models(this.id,'car_models')">
+                                {% for company in companies %}
+                                <option value="{{ company }}">{{ company }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+    
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Select the model:</b> </label><br>
+                            <select class="selectpicker form-control" id="car_models" name="car_models" required="1">
+                            </select>
+                        </div>
+    
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Select the Location:</b> </label><br>
+                            <select class="selectpicker form-control" id="location" name="location" required="1">
+                                {% for location in locations %}
+                                <option value="{{ location }}">{{ location }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+    
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Select Year of Purchase:</b> </label><br>
+                            <select class="selectpicker form-control" id="year" name="year" required="1">
+                                {% for year in years %}
+                                <option value="{{ year }}">{{ year }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+    
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Select the Fuel Type:</b> </label><br>
+                            <select class="selectpicker form-control" id="fuel" name="fuel" required="1">
+                                {% for fuel in fuel_types %}
+                                <option value="{{ fuel }}">{{ fuel }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+    
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Select the Transmission Type:</b> </label><br>
+                            <select class="selectpicker form-control" id="transmission" name="transmission" required="1">
+                                {% for transmission in transmissions %}
+                                <option value="{{ transmission }}">{{ transmission }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+    
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Select the Owner Type:</b> </label><br>
+                            <select class="selectpicker form-control" id="owner" name="owner" required="1">
+                                {% for owner in owner_types %}
+                                <option value="{{ owner }}">{{ owner }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+    
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Select the Number of Seats:</b> </label><br>
+                            <select class="selectpicker form-control" id="seat" name="seat" required="1">
+                                {% for seat in seats %}
+                                <option value="{{ seat }}">{{ seat }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+    
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Enter the Number of Kilometres that the car has travelled:</b> </label><br>
+                            <input type="text" class="form-control" id="kilo_driven" name="kilo_driven"
+                                   placeholder="Enter the kilometres driven ">
+                        </div>
+    
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Enter the Mileage of the car:</b> </label><br>
+                            <input type="text" class="form-control" id="mileage" name="mileage"
+                                   placeholder="Enter the mileage in (km/hr) ">
+                        </div>
+    
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Enter the Engine of the car:</b> </label><br>
+                            <input type="text" class="form-control" id="engine" name="engine"
+                                   placeholder="Enter the engine in (cc) ">
+                        </div>
+    
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Enter the Power of the car:</b> </label><br>
+                            <input type="text" class="form-control" id="power" name="power"
+                                   placeholder="Enter the power in (bhp) ">
+                        </div>
+    
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <button  class="btn btn-primary form-control" onclick="send_data()">Predict Price</button>
+                        </div>
+    
+                    </form>
+    
+                    <br>
+                    <div class="row">
+                        <div class="col-12" style="text-align: center">
+                            <h4><span id="prediction"></span></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   </section>
+
+    <!-- <section id="section-features">
+        <div class="con-fea">
+            <div class="row ">
+                <div class="col-lg">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-world"></i>
+                        <h3 class="heading-tertiary">ABCDEF</h3>
+                        <p class="feature-box__text">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis nihil ipsum maxime sequi, ex beatae ad necessitatibus veniam rem obcaecati aut quae facilis quaerat eum. Id perferendis odio tenetur non!                        </p>
+                    </div>
+                </div>
+                <div class="col-lg">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-compass"></i>
+                        <h3 class="heading-tertiary">GHIJKLM</h3>
+                        <p class="feature-box__text">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis nihil ipsum maxime sequi, ex beatae ad necessitatibus veniam rem obcaecati aut quae facilis quaerat eum. Id perferendis odio tenetur non!                        </p>
+                    </div></div>
+                <div class="col-lg">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-map"></i>
+                        <h3 class="heading-tertiary">NOPQR</h3>
+                        <p class="feature-box__text">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis nihil ipsum maxime sequi, ex beatae ad necessitatibus veniam rem obcaecati aut quae facilis quaerat eum. Id perferendis odio tenetur non!                        </p>
+                    </div>
+                </div>
+                <div class="col-lg">
+                     <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-heart"></i>
+                        <h3 class="heading-tertiary">STUVWXYZ</h3>
+                        <p class="feature-box__text">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis nihil ipsum maxime sequi, ex beatae ad necessitatibus veniam rem obcaecati aut quae facilis quaerat eum. Id perferendis odio tenetur non!
+                        </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+       
+    <section id="section-rooms">
+        <div class="u-center-text">
+            <h2 class="heading-secondary">Car Advertisements</h2>
+        </div>
+        <div class="row">
+              <div class="col-lg-3">
+               <div class="card" style="width: 22rem;">
+                    <img src="static/Images/car1.jpg" class="card-img-top" alt="Delux Room">
+                    <div class="card-body">
+                        <h5 class="card-title">ABDHKHFDSF</h5>
+                        <p class="card-text">DFSHKFJSHLDKJC</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">○ SDFZGDVDFVDFZ</li>
+                        <li class="list-group-item">○ DFZGFDGDGBFDRRRRRRGRDFDGFGD</li>
+                        <li class="list-group-item">○ GDRGDFGRERD</li>
+                        <li class="list-group-item">○ GERFDRFVGDGBBFVB</li>
+                        <li class="list-group-item">○ GDRSTERGDTHSHGHTRSHHTHDFR</li>
+                    </ul>-->
+                    <!-- <div class="card-body">
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div> -->
+                <!--</div>
+              </div>
+             <div class="col-lg-3">
+               <div class="card" style="width: 22rem;">
+                    <img src="static/Images/car2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">DSTGRDGGFBG</h5>
+                        <p class="card-text">HSRGSDGGDFGFDGGFDGFe</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">○ GDRSGDFFFFFFFFFFFREFR</li>
+                        <li class="list-group-item">○ RTGAAAAAAAFDGGGGGGGGGGRRRGA</li>
+                        <li class="list-group-item">○ GSARTTEEEEEEEEEEEGGGGGGGSTHRD</li>
+                        <li class="list-group-item">○ HYKUYTTTTTTTTTJJJJJJJJJJGGGH</li>
+                        <li class="list-group-item">○ YJKYTDDDDJJJJJJJJYFTTHHJGHF</li>
+                    </ul>-->
+                    <!-- <div class="card-body">
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div> -->
+                <!--</div>
+              </div>
+              <div class="col-lg-3">
+               <div class="card" style="width: 22rem;">
+                    <img src="static/Images/car3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">JFGHDTHDGHH</h5>
+                        <p class="card-text">DSHTHHHHJSSSSSSSHTHTRH</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">○ JDSHHHHHHHTRRRRRR</li>
+                        <li class="list-group-item">○ HSTTHHHHHHHHTSSSSSSSSSJTRT</li>
+                        <li class="list-group-item">○ STHSTHHHSRTSHTYSTHASERTYJDFNHD</li>
+                        <li class="list-group-item">○ HSDHAYEUHDFJKHBKJFKSHEUFHHDKD</li>
+                        <li class="list-group-item">○ FKSERHKEHKJHRFEDFHDIHHDGHFHGJ</li>
+                    </ul>-->
+                    <!-- <div class="card-body">
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div> -->
+                <!--</div>
+              </div>
+        </div>
+    </section> -->
+
+    
+    <script>
+    
+        function load_car_models(company_id,car_model_id)
+        {
+            var company=document.getElementById(company_id);
+            var car_model= document.getElementById(car_model_id);
+            console.log(company.value);
+            car_model.value="";
+            car_model.innerHTML="";
+            {% for company in companies %}
+                if( company.value == "{{ company }}")
+                {
+                    {% for model in car_models %}
+                        {% if company in model %}
+    
+                            var newOption= document.createElement("option");
+                            newOption.value="{{ model }}";
+                            newOption.innerHTML="{{ model }}";
+                            car_model.options.add(newOption);
+                        {% endif %}
+                    {% endfor %}
+                }
+            {% endfor %}
+        }
+    
+        function form_handler(event) {
+            event.preventDefault(); // Don't submit the form normally
+        }
+    
+        function send_data()
+        {
+            document.querySelector('form').addEventListener("submit",form_handler);
+            
+            var fd=new FormData(document.querySelector('form'));
+    
+            var xhr= new XMLHttpRequest({mozSystem: true});
+    
+            xhr.open('POST','/predict',true);
+            document.getElementById('prediction').innerHTML="Wait! Predicting Price.....";
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == XMLHttpRequest.DONE){
+                    document.getElementById('prediction').innerHTML="Prediction: ₹ "+xhr.responseText+" Lacs";
+    
+                }
+            };
+    
+            xhr.onload= function(){};
+    
+            xhr.send(fd);
+
+        }
+    </script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+crossorigin="anonymous"></script>
+    
+
+    
+    <footer class="mfooter">
+        <div class="con-footer">
+            <p>&copy Copyright 2021</p>
+            <p>A project by Anusuya Auddy, Swati Pandao & Abhishek Jaiswal</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+</html>
