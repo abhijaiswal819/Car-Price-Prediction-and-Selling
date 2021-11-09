@@ -1,2 +1,11 @@
 # Car-Price-Prediction-and-Selling
-Determining whether the listed price of a used car is a challenging task, due to the many factors that drive a used vehicle’s price on the market  The focus of this project is developing machine learning model that can accurately predict the price of a used car based on its features  For the prediction, we have consider almost 15 parameters and we will implement the algorithm which gives the higher accuracy  We have integrate this ML model in fully functional website where seller will create the advertisement of car for selling. Similarly buyer buy the car depending on the requirement
+# Final Year Project-Computer Engineering
+
+The increased prices of new cars and the financial incapability of the customers to buy them, Used Car sales are on a global increase.
+Deciding whether a used car is worth the posted price when you see listings online can be difficult.
+Based on existing dataset, the aim is to use machine learning algorithms to develop models for predicting used car prices.
+The aim of this project is to predict the price of second-hand reconditioned and second-hand used cars in India and to sell it.
+The car market has been increased steadily by around 5% for the last ten years, showing the high demand for cars by the Indian population.
+
+
+
