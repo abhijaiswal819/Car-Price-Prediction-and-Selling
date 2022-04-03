@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 import os 
-from pml import app 
+#from pml import app 
 
 
 app=Flask(__name__)
